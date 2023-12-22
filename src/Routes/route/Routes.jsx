@@ -1,22 +1,45 @@
 import {
     createBrowserRouter,
-  } from "react-router-dom";
+} from "react-router-dom";
 import Main from "../../pages/Layout/Main";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
- export const router = createBrowserRouter([
+import SignUp from "../../pages/Login/SignUp";
+import Dashboard from "../../pages/Layout/Dashboard";
+import AddTask from "../../pages/Dashboard/AddTask";
+import AllTask from "../../pages/Dashboard/AllTask";
+import PrivateRoute from "../Private/PrivateRoute";
+export const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Main></Main>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-            path:'/login',
-            element:<Login></Login>
-        }
-    ]
+        path: "/",
+        element: <Main></Main>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            }
+        ]
     },
-  ]);
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: 'addTask',
+                element: <AddTask></AddTask>
+            },
+            {
+                path:'allTask',
+                element:<AllTask></AllTask>
+            }
+        ]
+    }
+]);

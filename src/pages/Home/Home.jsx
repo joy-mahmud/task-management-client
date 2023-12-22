@@ -1,9 +1,14 @@
+import Banner from "./Banner";
+import Footer from "./Footer";
+import Users from "./Users";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>Home page</h2>
+            <Banner></Banner>
+            <Users></Users>
+            <Footer></Footer>
         </div>
     );
 };

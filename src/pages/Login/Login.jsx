@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider";
 import GoogleLogin from "./GoogleLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { userLogin } = useContext(AuthContext)
+    const navigate =useNavigate()
     const {
         register,
         handleSubmit,
@@ -16,7 +18,14 @@ const Login = () => {
         const password = data.password
         userLogin(email, password)
             .then(res => {
-                console.log(res.user)
+                navigate('/dashboard')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "You logged in sucessfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
     }
     return (

@@ -59,7 +59,7 @@ const SignUp = () => {
                                     }
                                 })
                         })
-                    navigate('/')
+                    navigate('/dashboard')
 
                     console.log(result.user)
                 })
@@ -86,7 +86,7 @@ const SignUp = () => {
                             <label className="">Choose your prifile picture</label><br />
                             <input type="file" {...register("image", { required: true })} className="file-input w-full max-w-xs" />
                         </div>
-                        <p>Alreday have an account? <Link to={'/login'}>signup</Link></p>
+                        <p>Alreday have an account? <Link to={'/login'}>Login</Link></p>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Sign Up</button>
                         </div>

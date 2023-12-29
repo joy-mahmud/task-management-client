@@ -9,6 +9,7 @@ import Dashboard from "../../pages/Layout/Dashboard";
 import AddTask from "../../pages/Dashboard/AddTask";
 import AllTask from "../../pages/Dashboard/AllTask";
 import PrivateRoute from "../Private/PrivateRoute";
+import UpdateTask from "../../pages/Dashboard/UpdateTask";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path:'allTask',
                 element:<AllTask></AllTask>
+            },
+            {
+                path:'updatTask/:id',
+                element:<UpdateTask></UpdateTask>
             }
         ]
     }

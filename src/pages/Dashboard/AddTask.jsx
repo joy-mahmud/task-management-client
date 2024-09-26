@@ -3,9 +3,12 @@ import useAxiosPublic from "../../hooks/axiosPublic/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import {addDoc,collection,serverTimestamp} from 'firebase/firestore'
+import { db } from "../../firebase/firebase.config";
 
 
 const AddTask = () => {
+    const taskRef = collection(db,'task')
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const {
@@ -23,9 +26,13 @@ const AddTask = () => {
         const status = 'pending'
         const task = {title,deadline,priority,description,status,email}
 
-        const res = await axiosPublic.post('/addTask',task)
+        const res = await axiosPublic.post('/addTask',task,)
+       
         console.log(res.data)
         if(res.data.insertedId){
+            const taskid = res.data.insertedId
+
+            await addDoc(taskRef,{...task,taskid,createdAt:serverTimestamp()})
             Swal.fire({
                 position: "top-end",
                 icon: "success",

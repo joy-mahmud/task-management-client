@@ -1,7 +1,8 @@
 import { useDrag } from "react-dnd";
+import CustomizedMenus from "./dropdown/dropdown";
 
 
-const OnGoingTask = ({ task, handleDelete }) => {
+const OnGoingTask = ({ task, handleDelete,handlePending,handleOngoing,handleComplete  }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "task",
         item: task,
@@ -20,8 +21,9 @@ const OnGoingTask = ({ task, handleDelete }) => {
                 <p><span className="text-xl font-semibold">deadline:</span>{task.deadline}</p>
             </div>
             <div className="flex gap-2 mt-2">
-                <button className="px-5 py-2 bg-[#007ACC] rounded-lg">Edit</button>
-                <button onClick={() => handleDelete(task._id)} className="px-3 py-2 bg-[#007ACC] rounded-lg">Delete</button>
+                <button className="px-5 py-[6px] bg-[#007ACC] rounded-lg">Edit</button>
+                <button onClick={() => handleDelete(task._id)} className="px-3 py-[6px] bg-[#007ACC] rounded-lg">Delete</button>
+                <CustomizedMenus task={task} handlePending={handlePending} handleOngoing={handleOngoing} handleComplete={handleComplete}></CustomizedMenus>
             </div>
         </div>
     );

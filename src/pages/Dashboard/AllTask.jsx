@@ -73,7 +73,7 @@ const DashboardHome = () => {
         }
     }
 
-    console.log(data)
+   // console.log(data)
     if (isPending) {
         return <Loading></Loading>
     }
@@ -91,6 +91,7 @@ const DashboardHome = () => {
             });
         }
     }
+    
 
     return (
         <div className="">
@@ -105,18 +106,18 @@ const DashboardHome = () => {
             </div> */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mt-2  ml-2">
                 <div ref={drop} className="p-2">
-                    <h2 className="text-3xl font-semibold text-center">Task to do</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-2">Task to do</h2>
                     <div className="border-2 rounded-lg min-h-screen p-2">
                         {
-                            data.pendingTask.map((task, idx) => <PendinTask key={idx} task={task} handleDelete={handleDelete}></PendinTask>)
+                            data.pendingTask.map((task, idx) => <PendinTask key={idx} task={task} handleDelete={handleDelete} handlePending={addItemInTodo} handleOngoing={addItemToOngoing} handleComplete={addItemToComplete}></PendinTask>)
                         }
                     </div>
                 </div>
                 <div ref={drop1} className="p-2">
-                    <h2 className="text-3xl font-semibold text-center">Ongoing tasks</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-2">Ongoing tasks</h2>
                     <div className="border-2 rounded-lg min-h-screen p-2">
                         {
-                            data.ongoingTask.map((task, idx) => <OnGoingTask key={idx} task={task} handleDelete={handleDelete}></OnGoingTask>)
+                            data.ongoingTask.map((task, idx) => <OnGoingTask key={idx} task={task} handleDelete={handleDelete}  handlePending={addItemInTodo} handleOngoing={addItemToOngoing} handleComplete={addItemToComplete}></OnGoingTask>)
                         }
                     </div>
 
@@ -124,11 +125,11 @@ const DashboardHome = () => {
 
                 </div>
                 <div ref={drop2} className="p-2">
-                    <h2 className="text-3xl font-semibold text-center">Completed tasks</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-2">Completed tasks</h2>
                     <div className="border-2 rounded-lg min-h-screen p-2">
                         {
 
-                            data.completedTask.map((task, idx) => <CompletedTask key={idx} task={task} handleDelete={handleDelete}></CompletedTask>)
+                            data.completedTask.map((task, idx) => <CompletedTask key={idx} task={task} handleDelete={handleDelete}  handlePending={addItemInTodo} handleOngoing={addItemToOngoing} handleComplete={addItemToComplete}></CompletedTask>)
 
                         }
                     </div>

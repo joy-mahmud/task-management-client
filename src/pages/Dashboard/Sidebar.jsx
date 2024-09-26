@@ -23,6 +23,8 @@ const Sidebar = () => {
                 <ul className="p-2 space-y-2">
                     <Link to={'/dashboard/addTask'}> <li className="border-2 p-2 rounded-lg mb-2  border-slate-400">Add a task</li></Link>
                     <Link to={'/dashboard/allTask'}><li className="border-2 p-2 rounded-lg border-slate-400">All tasks</li></Link>
+                    {/* <Link to={'/dashboard/allRealTimeTask'}><li className="border-2 p-2 rounded-lg border-slate-400">All realtime tasks</li></Link> */}
+                    
                     <li className="border-2 p-2 rounded-lg  border-slate-400 flex gap-2 items-center"><FaSignOutAlt></FaSignOutAlt><button onClick={handleLogout}>Logout</button></li>
                 </ul>
             </div>

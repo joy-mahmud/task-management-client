@@ -10,6 +10,7 @@ import AddTask from "../../pages/Dashboard/AddTask";
 import AllTask from "../../pages/Dashboard/AllTask";
 import PrivateRoute from "../Private/PrivateRoute";
 import UpdateTask from "../../pages/Dashboard/UpdateTask";
+import AllRealtimeTask from "../../pages/Dashboard/AllRealtimeTask";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path:'allTask',
                 element:<AllTask></AllTask>
+            },
+            {
+                path:'allRealTimeTask',
+                element:<AllRealtimeTask></AllRealtimeTask>
             },
             {
                 path:'updatTask/:id',
